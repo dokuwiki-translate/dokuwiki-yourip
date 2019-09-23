@@ -13,6 +13,14 @@ Please refer to [http://www.dokuwiki.org/plugins](http://www.dokuwiki.org/plugin
 on how to install plugins in DokuWiki.
 
 ----
+
+Original written by Artem Sidorenko <artem@2realities.com>, 2013
+Many thanks for your work!
+
+Adopted by Hella Breitkopf [https://unixwitch.de/ip](https://unixwitch.de/ip), 2019
+
+----
+
 Copyright (C) Artem Sidorenko <artem@2realities.com>
 
 This program is free software; you can redistribute it and/or modify
