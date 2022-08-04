@@ -5,6 +5,11 @@ Shows the ip information of visitor
 All documentation for this plugin can be found at
 [http://www.dokuwiki.org/plugin:yourip](http://www.dokuwiki.org/plugin:yourip)
 
+Compatibility checked for Dokuwiki Versions:
+* 2018-04-22 greebo
+* 2020-07-29 hogfather
+* 2022-07-31 igor
+
 If you install this plugin manually, make sure it is installed in
 lib/plugins/yourip/ - if the folder is called differently it
 will not work!
