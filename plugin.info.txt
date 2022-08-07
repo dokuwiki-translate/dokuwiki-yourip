@@ -1,7 +1,7 @@
 base   yourip
 author Artem Sidorenko, Hella Breitkopf
-email  .
-date   2019-09-23
+email  hella.breitkopf+dokuwiki@gmail.com
+date   2022-08-07
 name   yourip plugin
 desc   Show the ip information of visitor
 url    http://www.dokuwiki.org/plugin:yourip

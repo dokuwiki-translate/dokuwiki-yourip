@@ -5,6 +5,7 @@
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
  * @author  Artem Sidorenko <artem@2realities.com>
  * 2019-09 target urls changed by Hella Breitkopf, https://www.unixwitch.de
+ * 2022-08 enable localization by Hella Breitkopf, https://www.unixwitch.de
  */
 
 // must be run within Dokuwiki
@@ -62,30 +63,35 @@ class syntax_plugin_yourip extends DokuWiki_Syntax_Plugin {
         $text=false;
         if($data['yourip_type']=="box"){
             $text="\n<div id='yourip' class='$type'>";
-            if($type=='ipv6')
-                $text .= "You've got IPv6! <br/>IPv6 connection from $ip";
+        if($type=='ipv6') {
+                $text .= $this->getLang('you_use_v6'); // "You've got IPv6"
+        $text .= "<br/> ";
+        $text .= sprintf( $this->getLang('ipv6_from'), $ip); // "IPv6 connection from $ip"
+        }
             else
-                $text .= "You use old fashioned IPv4<br/>IPv4 connection from $ip";
+                $text .= $this->getLang('you_use_v4'); // "You use old fashioned IPv4"
+        $text .= "<br/>";
+        $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
             $text .="</div>\n";
             $renderer->doc .= $text;
             return true;
 
         #info as line
-        }elseif($data['yourip_type']=="line"){
-            $text="<p id='yourip' class='$type'>";
-            if($type=='ipv6')
-                $text .= "IPv6 connection from $ip";
-            else
-                $text .= "IPv4 connection from $ip";
-            $text .="</p>\n";
-            $renderer->doc .= $text;
-            return true;
+       }elseif($data['yourip_type']=="line"){
+           $text="<p id='yourip' class='$type'>";
+           if($type=='ipv6')
+               $text .= sprintf( $this->getLang('ipv6_from'), $ip); // "IPv6 connection from $ip"
+           else
+               $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
+               $text .="</p>\n";
+           $renderer->doc .= $text;
+           return true;
 
         #info without text
         }elseif($data['yourip_type']=="iponlyline"){
                 $text = "<p id='yourip' class='$type'>";
                 $text .= "$ip" ;
-                $text .= "</p>\n" ; 
+                $text .= "</p>\n" ;
             $renderer->doc .= $text;
             return true;
         }
