@@ -73,8 +73,8 @@ class syntax_plugin_yourip extends DokuWiki_Syntax_Plugin {
             $text .= $this->getLang('you_use_v4'); // "You use old fashioned IPv4"
             $text .= "<br/>";
             $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
-            $text .="</div>\n";
         }
+        $text .="</div>\n";
         $renderer->doc .= $text;
         return true;
 
