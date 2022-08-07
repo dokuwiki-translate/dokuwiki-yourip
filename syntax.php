@@ -64,17 +64,19 @@ class syntax_plugin_yourip extends DokuWiki_Syntax_Plugin {
         if($data['yourip_type']=="box"){
             $text="\n<div id='yourip' class='$type'>";
         if($type=='ipv6') {
-                $text .= $this->getLang('you_use_v6'); // "You've got IPv6"
-        $text .= "<br/> ";
-        $text .= sprintf( $this->getLang('ipv6_from'), $ip); // "IPv6 connection from $ip"
+            $text .= $this->getLang('you_use_v6'); // "You've got IPv6"
+            $text .= "<br/> ";
+            $text .= sprintf( $this->getLang('ipv6_from'), $ip); // "IPv6 connection from $ip"
         }
-            else
-                $text .= $this->getLang('you_use_v4'); // "You use old fashioned IPv4"
-        $text .= "<br/>";
-        $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
+        else
+        {
+            $text .= $this->getLang('you_use_v4'); // "You use old fashioned IPv4"
+            $text .= "<br/>";
+            $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
             $text .="</div>\n";
-            $renderer->doc .= $text;
-            return true;
+        }
+        $renderer->doc .= $text;
+        return true;
 
         #info as line
        }elseif($data['yourip_type']=="line"){
@@ -83,7 +85,7 @@ class syntax_plugin_yourip extends DokuWiki_Syntax_Plugin {
                $text .= sprintf( $this->getLang('ipv6_from'), $ip); // "IPv6 connection from $ip"
            else
                $text .= sprintf( $this->getLang('ipv4_from'), $ip); // "IPv4 connection from $ip"
-               $text .="</p>\n";
+           $text .="</p>\n";
            $renderer->doc .= $text;
            return true;
 
